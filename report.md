@@ -155,7 +155,7 @@ Res = [[a1, a2], [a1, o1], [o1], [a1, a2], [a2, o1]].
 
 All that's left is to make the results subset minimal:
 
-```
+```prolog
 has_subset(Sets, Set) :- member(Sub, Sets), subset(Sub, Set), \+ Sub = Set.
 
 minimal_hitting_sets(SD, COMP, OBS, MinimalHittingSets) :-
@@ -166,7 +166,7 @@ minimal_hitting_sets(SD, COMP, OBS, MinimalHittingSets) :-
 
 This excludes all hitting sets that have another subset in the set of hitting sets:
 
-```
+```prolog
 ?- fulladder(SD, COMP, OBS), minimal_hitting_sets(SD, COMP, OBS, Res).
 SD = [all _G33: (and(_G33), ~ab(_G33)=> (in1(_G33), in2(_G33)<=>out(_G33))), all _G62: (or(_G62), ~ab(_G62)=> (in1(_G62);in2(_G62)<=>out(_G62))), all _G91: (xor(_G91), ~ab(_G91)=> (out(_G91)<=>in1(...), ~ ...;~ ..., in2(...))), and(a1), and(a2), xor(x1), xor(x2), or(r1), (... <=> ...)|...],
 COMP = [a1, a2, x1, x2, r1],
